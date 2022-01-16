@@ -1,5 +1,5 @@
 # CS210-Project
-The first step of this project is to generate some list random, grammatically correct english sentences that might make sense maybe.
+The first step of this project is to generate some list of random, grammatically correct english sentences that might make sense maybe.
 Next is to find which pair of these sentences has the most similar sha256 hash.
 
 For example this a pair I found with 20 matching characters in the same position, and given some context they might actually make sense.
