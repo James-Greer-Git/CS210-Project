@@ -3,7 +3,7 @@ import java.util.*;
 import java.security.*;
 public class dictProject{
     public static void main (String[] args) throws Exception{
-        File file = new File("C:\\Users\\jamgr\\Documents\\GitHub\\CS210\\Project\\words.txt");
+        File file = new File("");
         List<String> words = readWordFromFile(file);
         String bestfirstSentence = "";
         String bestsecondSentence = "";
