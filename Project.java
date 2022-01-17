@@ -3,7 +3,7 @@ import java.util.*;
 import java.security.*;
 public class Project{
     public static void main (String[] args) throws Exception{
-        File file = new File("C:\\Users\\James\\Documents\\Software Development\\CS210\\Project\\words.txt");
+        File file = new File("");
         List<String> strings = readWordFromFile(file);
         List<String> hashCodes = new ArrayList<>();
         List<String> sentences = new ArrayList<>();
