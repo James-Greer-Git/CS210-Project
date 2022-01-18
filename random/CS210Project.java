@@ -1,20 +1,20 @@
 import java.io.File;
 import java.util.*;
 import java.security.*;
-public class dictProject{
+public class Project{
     public static void main (String[] args) throws Exception{
         File file = new File("");
         List<String> words = readWordFromFile(file);
         String bestfirstSentence = "";
         String bestsecondSentence = "";
-        int maxCount = 0;
+        int maxCount = 22;
         while(maxCount < 23){
-            String firstSentence = "My favourite words are " + words.get((int) (Math.random()*words.size())) + ", "
-                + words.get((int) (Math.random()*words.size())) + ", " + words.get((int) (Math.random()*words.size())) + ", "
-                + words.get((int) (Math.random()*words.size())) + " and " + words.get((int) (Math.random()*words.size())) + ".";
-            String secondSentence = "My favourite words are " + words.get((int) (Math.random()*words.size())) + ", "
-                + words.get((int) (Math.random()*words.size())) + ", " + words.get((int) (Math.random()*words.size())) + ", "
-                + words.get((int) (Math.random()*words.size())) + " and " + words.get((int) (Math.random()*words.size())) + ".";
+            String firstSentence = "My favourite words are '" + words.get((int) (Math.random()*words.size())) + "', '"
+                + words.get((int) (Math.random()*words.size())) + "', '" + words.get((int) (Math.random()*words.size())) + "', '"
+                + words.get((int) (Math.random()*words.size())) + "' and '" + words.get((int) (Math.random()*words.size())) + "'.";
+            String secondSentence = "My favourite words are '" + words.get((int) (Math.random()*words.size())) + "', '"
+                + words.get((int) (Math.random()*words.size())) + "', '" + words.get((int) (Math.random()*words.size())) + "', '"
+                + words.get((int) (Math.random()*words.size())) + "' and '" + words.get((int) (Math.random()*words.size())) + "'.";
             String firstHash = sha256(firstSentence);
             String secondHash = sha256(secondSentence);
             int count = 0;
@@ -24,7 +24,7 @@ public class dictProject{
                     count++;
                 }
             }
-            if(count > maxCount){
+            if(count >= maxCount){
                 maxCount = count;
                 bestfirstSentence = firstSentence;
                 bestsecondSentence = secondSentence;
