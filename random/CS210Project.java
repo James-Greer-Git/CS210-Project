@@ -7,8 +7,8 @@ public class Project{
         List<String> words = readWordFromFile(file);
         String bestfirstSentence = "";
         String bestsecondSentence = "";
-        int maxCount = 22;
-        while(maxCount < 23){
+        int maxCount = 23;
+        while(maxCount < 24){
             String firstSentence = "My favourite words are '" + words.get((int) (Math.random()*words.size())) + "', '"
                 + words.get((int) (Math.random()*words.size())) + "', '" + words.get((int) (Math.random()*words.size())) + "', '"
                 + words.get((int) (Math.random()*words.size())) + "' and '" + words.get((int) (Math.random()*words.size())) + "'.";
