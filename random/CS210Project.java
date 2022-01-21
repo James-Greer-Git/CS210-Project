@@ -1,7 +1,7 @@
 import java.io.File;
 import java.util.*;
 import java.security.*;
-public class Project{
+public class CS210Project{
     public static void main (String[] args) throws Exception{
         File file = new File("");
         List<String> words = readWordFromFile(file);
