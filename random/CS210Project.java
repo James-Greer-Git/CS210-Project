@@ -3,20 +3,35 @@ import java.util.*;
 import java.security.*;
 public class CS210Project{
     public static void main (String[] args) throws Exception{
-        File file = new File("");
+        
+        File file = new File("");                                                   
+        //words.txt path goes here
+        
         List<String> words = readWordFromFile(file);
+        //Reading words.txt into a list of strings
+        
         String bestfirstSentence = "";
         String bestsecondSentence = "";
-        int maxCount = 23;
-        while(maxCount < 24){
+        //Variables to keep track of the current best pair
+        
+        int maxCount = 20;
+        //Reducing maxCount or even setting it to zero will increase the amount of print statements used immediately after running the code.
+        //I set it to 20 just to reduce the clutter in my console.
+        
+        while(maxCount < 25){
+            
             String firstSentence = "My favourite words are '" + words.get((int) (Math.random()*words.size())) + "', '"
-                + words.get((int) (Math.random()*words.size())) + "', '" + words.get((int) (Math.random()*words.size())) + "', '"
-                + words.get((int) (Math.random()*words.size())) + "' and '" + words.get((int) (Math.random()*words.size())) + "'.";
+                                    + words.get((int) (Math.random()*words.size())) + "', '" + words.get((int) (Math.random()*words.size())) + "', '"
+                                    + words.get((int) (Math.random()*words.size())) + "' and '" + words.get((int) (Math.random()*words.size())) + "'.";
+            
             String secondSentence = "My favourite words are '" + words.get((int) (Math.random()*words.size())) + "', '"
-                + words.get((int) (Math.random()*words.size())) + "', '" + words.get((int) (Math.random()*words.size())) + "', '"
-                + words.get((int) (Math.random()*words.size())) + "' and '" + words.get((int) (Math.random()*words.size())) + "'.";
+                                    + words.get((int) (Math.random()*words.size())) + "', '" + words.get((int) (Math.random()*words.size())) + "', '"
+                                    + words.get((int) (Math.random()*words.size())) + "' and '" + words.get((int) (Math.random()*words.size())) + "'.";
+            //Generating the pair of sentences that will be tested in -this- loop.
+            
             String firstHash = sha256(firstSentence);
             String secondHash = sha256(secondSentence);
+            
             int count = 0;
 
             for(int i = 0; i < 64; i++){
@@ -24,7 +39,9 @@ public class CS210Project{
                     count++;
                 }
             }
-            if(count >= maxCount){
+            //Simple loop to compare all the characters in each string.
+  
+            if(count >= maxCount){  //>= statement is optional, I wanted to see any equivalent pairs if they were found
                 maxCount = count;
                 bestfirstSentence = firstSentence;
                 bestsecondSentence = secondSentence;
@@ -48,6 +65,7 @@ public class CS210Project{
         }
     }
     public static List<String> readWordFromFile(File file)throws Exception{
+        //Method for reading a .txt file using Scanner
         List<String> strings = new ArrayList<String>();
         Scanner sc = new Scanner(file);
         while (sc.hasNextLine()){
